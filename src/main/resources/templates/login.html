@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <meta charset="UTF-8">
+  <title>Registration and Login System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+  <style>
+    .regButton {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 6px 24px;
+      cursor: pointer;
+    }
+    .regButton:hover {
+      background: #ccc;
+    }
+    #window{
+      width: 350px;
+      height: 400px;
+      margin:60px auto;
+      background: #fff;
+      border: 1px solid #fff;
+      border-radius: 15px;
+      z-index: 150;
+      display: block;
+      position: fixed; left: 0; right: 0; top: 0; bottom: 0;
+
+    }
+    .form {
+      width: 300px;
+      height: 200px;
+      margin: -0px auto 20px auto;
+      text-align: -moz-left;
+    }
+    .input{
+      width: 300px;
+       padding: 10px;
+       margin-bottom: 10px; }
+    .radio{margin-bottom: 10px;}
+    .close{margin: 10px 0 0 320px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      padding: 2px;
+      background: #ccc;}
+    .close:hover{background: #fff;}
+    #gray{ opacity: 0.8; padding: 15px; background-color: rgba(1,1,1,0.75);
+      position: fixed; left: 0; right: 0; top: 0; bottom: 0;
+      display: none;
+      z-index: 100; overflow: auto}
+    .imgsize {
+      width: 1473px;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{/index}">Main page</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/register}">Регистрация</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--<section class="about">-->
+<!--&lt;!&ndash;  <video class="video" loop="loop" autoplay="" muted="">&ndash;&gt;-->
+<!--&lt;!&ndash;    <source src="https://joy.videvo.net/videvo_files/video/free/2019-12/large_watermarked/190915_B_01_Timelapse%20Danang_05_preview.mp4" type="video/mp4" />&ndash;&gt;-->
+<!--&lt;!&ndash;    <source src="https://joy.videvo.net/videvo_files/video/free/2019-12/large_watermarked/190915_B_01_Timelapse%20Danang_05_preview.mp4" type="video/ogv" />&ndash;&gt;-->
+<!--&lt;!&ndash;    <source src="https://joy.videvo.net/videvo_files/video/free/2019-12/large_watermarked/190915_B_01_Timelapse%20Danang_05_preview.mp4" type="video/webm" />&ndash;&gt;-->
+<!--&lt;!&ndash;  </video>&ndash;&gt;-->
+<!--  <div class="about-footer"></div>-->
+<!--</section>-->
+<img class="imgsize" src="https://www.fablabtreviso.org/content/4-didattica-e-corsi/67-building-information-modeling-con-revit-quarta-edizione/2revit.jpg" >
+
+<div onclick="show('none')" id="gray"></div>
+<div id="window">
+  <!--Картинка крестика-->
+  <img class="close" src="close.png" alt="" onclick="show('none')">
+  <div class="form">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="text-center">Войти</h2>
+      </div>
+      <div th:if="${param.error}">
+        <div class="alert alert-danger">Неправильная почта или пароль</div>
+      </div>
+      <div th:if="${param.logout}">
+        <div class="alert alert-success"> Вы вышли из личного кабинета</div>
+      </div>
+      <form action="login.html" method="post" role="form"  th:action="@{/login}"
+            >
+        <input type="email" placeholder="Email" name="username" class="input" >
+        <p errors = "*{username}" class="text-danger"
+           if="${#fields.hasErrors('username')}"></p>
+        <input type="password" placeholder="Password" name="password" class="input" >
+        <p errors = "*{password}" class="text-danger"
+           if="${#fields.hasErrors('password')}"></p>
+        <div class="form-group mb-3">
+          <button type="submit" class="btn btn-primary" th:href="@{/index}" >Войти</button>
+          <span> Не зарегистрированы?
+                                <a th:href="@{/register}">Зарегистрироваться</a>
+                            </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  //Функция показа
+  function show(state)
+  {
+    document.getElementById('window').style.display = state;
+    document.getElementById('gray').style.display = state;
+  }
+</script>
+</body>
+</html>
