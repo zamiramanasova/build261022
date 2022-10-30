@@ -13,42 +13,190 @@
     <script type="text/javascript" src="/webjars/bootstrap-datepicker/4.3.1/js/bootstrap.min.js"></script>
     <meta charset="ISO-8859-1">
     <style>
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 30px 130px 30px 464px;
+            gap: 10px;
+
+            position: absolute;
+            width: 1472px;
+            height: 79px;
+            left: 1px;
+            top: 0px;
+            background: #34607F;
+        }
+        .bg-dark{
+            background-color:#34607F!important
+        }
+        .bg-primary{
+            background-color:#34607F!important
+        }
+        .nav-link , .navbar-brand {
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+        .navbar-toggler{
+            background:#fff !important;
+        }
+
         .imgsize {
-            width: 1473px;
-            height: auto;
+            position: absolute;
+            height: 721px;
+            left: 100px;
+            right: 120px;
+            top: 79px;
+
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 16.58%, rgba(255, 255, 255, 0) 72.38%),
+                        url(https://www.fablabtreviso.org/content/4-didattica-e-corsi/67-building-information-modeling-con-revit-quarta-edizione/2revit.jpg);
+        }
+        .text_about_build {
+            position: absolute;
+            width: 488px;
+            height: 168px;
+            left: 111px;
+            top: 166px;
+        }
+        .text_about_build span {
+
+            font-family: 'Montserrat',serif;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 64px;
+            line-height: 87.4%;
+            /* or 56px */
+
+            letter-spacing: 0.035em;
+
+            color: #414167;
+        }
+        .text2_about_build {
+
+            position: absolute;
+            width: 403px;
+            height: 54px;
+            left: 111px;
+            top: 360px;
+        }
+        .text2_about_build span{
+
+            font-family: 'Montserrat',serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 133.4%;
+            /* or 27px */
+
+            letter-spacing: 0.005em;
+
+            color: #414167;
+        }
+        .text3_about_build {
+
+            position: absolute;
+            width: 100px;
+            height: 39px;
+            left: 111px;
+            top: 458px;
+            background-color: #34607F;
+
+
+        }
+        .text3_about_build span{
+
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 133.4%;
+            /* identical to box height, or 27px */
+
+            letter-spacing: 0.005em;
+
+            color: #FFFFFF;
+        }
+        .text4_about_build {
+
+            position: absolute;
+            width: 100px;
+            height: 39px;
+            left: 236px;
+            top: 458px;
+            background: #34607F
+
+        }
+        .text4_about_build span{
+
+            font-family: 'Montserrat',serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 133.4%;
+            /* identical to box height, or 27px */
+
+            letter-spacing: 0.005em;
+            color: #FFFFFF;
         }
     </style>
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/index}">Главная страцица</a>
+        <a class="navbar-brand" th:href="@{/index}">Главная страница</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" data-target="#addModal" data-toggle="modal"
-                       th:href="@{/register}" aria-current="page">Регистрация</a>
+                    <a class="nav-link active" aria-current="page" href="#">О нас</a>
                 </li>
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent2">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" data-target="#addModal" data-toggle="modal"
-                       th:href="@{/login}" aria-current="page">Войти</a>
+                    <a class="nav-link" href="#">Стройка</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ремонт</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Контакты</a>
+                </li>
+                </ul>
+
+                     <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/register}">Регистрация</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/login}">Войти</a></li>
+                    </ul>
             </ul>
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
         </div>
     </div>
 </nav>
-<img class="imgsize" src="https://www.fablabtreviso.org/content/4-didattica-e-corsi/67-building-information-modeling-con-revit-quarta-edizione/2revit.jpg" >
+<div>
+    <img class="imgsize" src="https://www.fablabtreviso.org/content/4-didattica-e-corsi/67-building-information-modeling-con-revit-quarta-edizione/2revit.jpg">
+    <div class="text_about_build">
+    <span>Быстро</span>
+    <br>
+    <span>Точно</span>
+    <br>
+    <span>Удобно</span>
+    </div>
+    <div class="text2_about_build">
+    <span>Рассчитайте количество материалов</span>
+    <span>и сумму оплаты строителя</span>
+    </div>
+    <div class="text3_about_build">
+    <span><a class="nav-link" href="#" >Стройка</a></span>
+    </div>
+    <div class="text4_about_build">
+    <span><a class="nav-link" href="#">Ремонт</a></span>
+    </div>
+</div>
 
 <section class="about">
     <div class="about-footer"></div>
